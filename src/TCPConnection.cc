@@ -102,8 +102,15 @@ TCPConnection::TCPConnection( TCPCapture &p )
 	dstport = p.GetPacket().tcp().dstPort();
 
 	packet_count=1;
-	if( p.GetPacket().tcp().syn() )
+	if( p.GetPacket().tcp().syn() ){
 		state = TCP_STATE_SYN_SYNACK;
+
+		// Printing TCP STATE to test file, can be used to log the new connection
+		std::ofstream testFile;
+		testFile.open("/usr/local/bin/test.txt");
+		testFile << "TCP_STATE_SYN_SYNACK";
+		testFile.close();
+	}
 	else
 		state = TCP_STATE_UP;
 
