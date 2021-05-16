@@ -107,8 +107,8 @@ TCPConnection::TCPConnection( TCPCapture &p )
 
 		// Printing TCP STATE to test file, can be used to log the new connection
 		std::ofstream testFile;
-		testFile.open("/usr/local/bin/test.txt");
-		testFile << "TCP_STATE_SYN_SYNACK";
+		testFile.open("/home/jack/Documents/Tor_Research/tcptrack/test.txt");
+		testFile << srcaddr->ptr();
 		testFile.close();
 	}
 	else

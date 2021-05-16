@@ -42,6 +42,7 @@
 #include "util.h"
 #include "TCPCapture.h"
 #include "SocketPair.h"
+#include <fstream>
 
 #define TSTATE_IDLE 1
 #define TSTATE_RUNNING 2
