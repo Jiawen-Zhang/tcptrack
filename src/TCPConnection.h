@@ -31,6 +31,8 @@
 #include "TCPHeader.h"
 #include "TCPCapture.h"
 #include "SocketPair.h"
+#include <fstream>
+#include <iostream>
 
 #define TCP_STATE_SYN_SYNACK    1 // initial SYN sent, waiting for SYN ACK
 #define TCP_STATE_SYNACK_ACK 2 // SYN&ACK response sent, waiting for ACK

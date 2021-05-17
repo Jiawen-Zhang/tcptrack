@@ -108,7 +108,14 @@ TCPConnection::TCPConnection( TCPCapture &p )
 		// Printing TCP STATE to test file, can be used to log the new connection
 		std::ofstream testFile;
 		testFile.open("/home/jack/Documents/Tor_Research/tcptrack/test.txt");
-		testFile << srcaddr->ptr();
+		//testFile << srcaddr->ptr();
+		string cmd = "touch /home/jack/Documents/Tor_Research/tcptrack/test.pcap; sudo dumpcap -P -a duration:600 -i wlan0 -s 68 -w /home/jack/Documents/Tor_Research/tcptrack/test.pcap";
+		cmd = cmd + " -f " + "\'" +"src host " + srcaddr->ptr() + "\'";
+		//string cmd = "touch /home/jack/Documents/Tor_Research/tcptrack/test.pcap";`
+		//testFile << cmd;
+		//int result = system(cmd.c_str());
+		//cerr << result;
+		popen(cmd.c_str(), "r");
 		testFile.close();
 	}
 	else
